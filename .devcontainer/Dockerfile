@@ -88,6 +88,10 @@ RUN set -eux \
     && apt-get update \
     && apt-get install --yes --quiet ${PYTHON_PACKAGES}
 
+RUN  apt-get update \
+  && apt-get install -y wget \
+  && rm -rf /var/lib/apt/lists/*
+
 RUN set -eux \
   && echo "Installing pre-built updates" \
     && echo "Installing qpdf ${QPDF_VERSION}" \
